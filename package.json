@@ -37,24 +37,26 @@
     "test:coverage": "react-scripts test --coverage --watchAll false ",
     "eject": "react-scripts eject"
   },
+
   "browserslist": {
     "production": [
       ">0.2%",
       "not dead",
       "not op_mini all"
     ],
-    "jest": {
-      "collectCoverageFrom": [
-        "src/pages/**/*.tsx",
-        "src/components/**/*.tsx",
-        "src/context/**/*.tsx",
-        "!src/context/**/index.tsx"
-      ]
-    },
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+
+  "jest": {
+    "collectCoverageFrom": [
+      "src/pages/**/*.tsx",
+      "src/components/**/*.tsx",
+      "src/context/**/*.tsx",
+      "!src/context/**/index.tsx"
     ]
   },
   "devDependencies": {
@@ -75,4 +77,5 @@
     "prettier": "^2.0.5",
     "react-test-renderer": "^16.13.1"
   }
+
 }

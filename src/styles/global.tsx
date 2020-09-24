@@ -1,22 +1,23 @@
 import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
+
   *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     outline: 0;
-    text-decoration:none;
+    text-decoration: none;
   }
 
   body{
     background: #312e38;
     color: #fff;
-    -webkit-font-smoothing: antialiased;
+    webkit-font-smoothing: antialiased;
   }
 
-  body,button,input{
-    font-family: 'Roboto Slab', serif;
+  body, input, button{
+    font-family: 'Roboto Slab',serif;
     font-size: 16px;
 
   }
@@ -27,6 +28,13 @@ export default createGlobalStyle`
 
   button{
     cursor: pointer;
+  }
+
+  :root{
+    --primary: #ff9000;
+    --text: #312e38;
+    --textplace: #666360;
+    --white: #f4ede8;
   }
 
 `;
