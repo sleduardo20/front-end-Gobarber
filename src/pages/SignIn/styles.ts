@@ -89,7 +89,7 @@ export const Content = styled.div`
         margin-right: 16px;
       }
 
-      &:hover {
+    &:hover {
         color: ${shade(0.2, '#ff9000')};
       }
     }
