@@ -5,6 +5,7 @@ import SignIn from './pages/SignIn';
 import GlobalStyle from './styles/global';
 
 import { AuthProvider } from './hooks/AuthContext';
+import ToastsContainer from './components/ToastsContainer';
 
 // import Routes from './routes';
 
@@ -13,6 +14,7 @@ const App: React.FC = () => (
     <AuthProvider>
       <SignIn />
     </AuthProvider>
+    <ToastsContainer />
     <GlobalStyle />
   </>
 );
