@@ -57,8 +57,10 @@ const SignIn: React.FC = () => {
           const errors = getValidationErrors(error);
 
           formRef.current?.setErrors(errors);
+
           return;
         }
+
         addToast({
           type: 'error',
           title: 'Erro na Autenticação',
@@ -67,7 +69,7 @@ const SignIn: React.FC = () => {
       }
     },
 
-    [signIn, addToast, history],
+    [signIn, history, addToast],
   );
   return (
     <Container>
