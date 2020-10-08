@@ -1,8 +1,14 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { isToday, format } from 'date-fns';
+import ptBR from 'date-fns/esm/locale/pt-BR';
+import { FiClock, FiPower } from 'react-icons/fi';
 import DayPicker, { DayModifiers } from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 
-import { FiClock, FiPower } from 'react-icons/fi';
+import { useAuth } from '../../hooks/Auth';
+
+import api from '../../services/api';
+
 import {
   Container,
   Header,
@@ -17,8 +23,6 @@ import {
 } from './styles';
 
 import logoImg from '../../assets/logo.svg';
-import { useAuth } from '../../hooks/Auth';
-import api from '../../services/api';
 
 interface MonthAvailabilityItem {
   day: number;
@@ -71,6 +75,14 @@ const Dashboard: React.FC = () => {
     return dates;
   }, [currentMonth, monthAvailability]);
 
+  const selectedDateAsText = useMemo(() => {
+    return format(selectedDate, "'Dia' dd 'de' MMMM", { locale: ptBR });
+  }, [selectedDate]);
+
+  const selectedWeekDay = useMemo(() => {
+    return format(selectedDate, 'cccc', { locale: ptBR });
+  }, [selectedDate]);
+
   return (
     <Container>
       <Header>
@@ -96,9 +108,9 @@ const Dashboard: React.FC = () => {
         <Schedule>
           <h1>Horário agendados</h1>
           <p>
-            <span>Hoje</span>
-            <span>Dia 06</span>
-            <span>Segunda-Feira</span>
+            {isToday(selectedDate) && <span>Hoje</span>}
+            <span>{selectedDateAsText}</span>
+            <span>{selectedWeekDay}</span>
           </p>
           <NextApoointment>
             <strong>Atendimento a seguir</strong>
